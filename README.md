@@ -1,2 +1,2 @@
 # chartmuseumui
-ChartMuseumUI is a simple Go web which display chartmuseum abilities
+ChartMuseumUI is a simple Go web app which expose chartmuseum abilities
