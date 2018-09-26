@@ -1,125 +1,168 @@
-{{ template "main.tpl" . }}
-{{define "header"}}
+
+
 <!DOCTYPE html>
 
 <html>
-<head>
-  <title>ChartMuseumUI</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <link rel="shortcut icon" href="static/img/logo.png" type="image/x-icon" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <head>
+    <title>ChartMuseumUI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="static/img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/static/js/reload.min.js"></script> 
+    <style type="text/css">
+      html, body {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+      }
 
-  <style type="text/css">
-    *,body {
-      margin: 0px;
-      padding: 0px;
-    }
+      *,body {
+        margin: 0px;
+        padding: 0px;
+      }
 
-    body {
-      margin: 0px;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      line-height: 20px;
-    }
+      body {
+        margin: 0px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+      }
 
-    header,
-    footer {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: #384d54;
-      color: white;
-    }
+      header,
+      footer {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #384d54;
+        color: white;
+      }
 
-    .logo {
-      background-image: url(static/img/logo_white.png);
-      background-repeat: no-repeat;
-      -webkit-background-size: 200px 100px;
-      background-size: 210px 150px;
-      background-position: center center;
-      text-align: center;
-      font-size: 42px;
-      padding: 280px 0 20px;
-      font-weight: normal;
-    }
+      .gallery{
+        display: grid;
+        grid-template-columns: repeat(4, minmax(15rem, 1fr));
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        place-item: center;
+      }
 
-    header {
-      padding: 0;
-    }
+      .page{
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+      }
 
-    footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 60px;   /* Height of the footer */
-      background: #384d54;
-      line-height: 1.8;
-      text-align: center;
-      padding: 10px 0;
-      color: #999;
-    }
+      .chart-scroller{
+        overflow-y: auto;
+        overflow-x: hidden;
+      }    
 
-    .description {
-      text-align: center;
-      font-size: 16px;
-      margin-bottom: 50px;
-      padding-bottom: 10px;
-    }
+      .chart-content {
+        display: flex;
+        place-items: center;
+      }
+      .card.tile {
+        width: 15rem;
+        height: 15rem;
+        display: flex;
+      }
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+      }
 
-    .content {
-      text-align: center;
-      font-size: 16px;      
-    }
+      .card-footer {
+        display: flex;
+        justify-content: center;
+      }
 
-    a {
-      color: white;
-      text-decoration: none;
-    }
+      .icon-container {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        place-items: center;
+      }
 
-    .backdrop {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      box-shadow: inset 0px 0px 100px #ddd;
-      z-index: -1;
-      top: 0px;
-      left: 0px;
-    }
+      .icon-container > img {
+        max-width: 100%;
+        max-height: 100%;
+      }
 
-    .tile {
-      display: inline-block;
-    }
+      .logo {
+        background-image: url(static/img/logo_white.png);
+        background-repeat: no-repeat;
+        -webkit-background-size: 200px 100px;
+        background-size: 310px 150px;
+        background-position: center center;
+        text-align: center;
+        font-size: 42px;
+        padding: 260px 0 20px;
+        font-weight: normal;
+      }
 
-    .author {
-      color: white;
-    }
+      header {
+        padding: 0;
+      }
 
-    .my-card {
-      padding-right: 40px;
-      padding-left: 40px;
-      padding-bottom: 40px;
-    }
+      footer {
+        width: 100%;
+        height: 60px;   /* Height of the footer */
+        background: #384d54;
+        line-height: 1.8;
+        text-align: center;
+        padding: 10px 0;
+        color: #999;
+      }
+
+      .description {
+        text-align: center;
+        font-size: 16px;
+      }
+
+      .content {
+        text-align: center;
+        font-size: 16px;      
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .backdrop {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 0px 0px 100px #ddd;
+        z-index: -1;
+        top: 0px;
+        left: 0px;
+      }
+
+      .tile {
+        display: inline-block;
+      }
+
+      .author {
+        color: white;
+      }
+
+      .my-card {
+        padding-right: 40px;
+        padding-left: 40px;
+        padding-bottom: 40px;
+      }
 
   </style>
 </head>
-  <header>
-    <h1 class="logo">Welcome to ChartMuseumUI</h1>
-    <div class="description">
-      ChartMuseumUI is a simple Go web which display chartmuseum abilities.
-    </div>
-  </header>
-{{end}}
 
-{{define "footer"}}
-<footer>
-    <div class="author">
-      Official website :
-      <a href="http://{{.Website}}">{{.Website}}</a>
-      Contact me:
-      <a class="email" href="mailto:{{.Email}}">{{.Email}}</a>
-    </div>
-  </footer>
-{{end}}
+<body>
+  {{ template "main.tpl" . }}
+</body>
+
+</html>
