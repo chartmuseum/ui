@@ -14,7 +14,7 @@ These instructions will get you with your very own private chart repository. You
 
 ChartMuseumUI is using [ChartMuseum](https://github.com/helm/chartmuseum) as a backend so the best way would be to use docker-compose. 
 
-For example to following docker-compose is using ChartMuseum with Amazon S3 as a stroage.
+For example to following docker-compose is using ChartMuseum with Amazon S3 as a stroage
 ```
 version: '2.0'
 
@@ -41,26 +41,26 @@ services:
       - 8080:8080
 ```
 
-Copy this file and then run:
+Copy this file and run
 
 ```
 docker-compose up 
 ```
-Now let's add our private repo to our Helm client.
+Now, we can add our private repo to our Helm client
 
 ```
 helm repo add <repo-name> <chartmuseum-url>
 helm repo update
 ```
-Let's upload a chart into our repository
+Let's upload a chart into our private repository
 ```
 cd /chart/path
-# create a package
+# create a chart package -this will creaye a .tgz file
 helm package .
-#copy packge name
+#copy packge name and run
 curl -L --data-binary "@<packge-name>" <chartmuseum-url>/api/charts
 ```
-We should now had over to `localhost/home` to view our charts.
+In the browser navigate to `localhost/home` to view our charts
 
 
 
@@ -71,9 +71,16 @@ We should now had over to `localhost/home` to view our charts.
 * [go](https://golang.org/) - Programing language
 * [docker](https://www.docker.com/) - Packaged with docker
 
+
+## Project Roadmap
+* Add login screen
+* Add more chartmuseum capabilitis:
+   - Upload a chart
+   - Delete a chart
+
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Code contributions are very welcome. If you are interested in helping make chartmuseumui great then see our [contributing guide](CONTRIBUTING.md).
 
 
 ## Authors
