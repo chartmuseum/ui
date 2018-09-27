@@ -80,7 +80,7 @@ In the browser navigate to `localhost/home` to view our charts
 
 ## Contributing
 
-Code contributions are very welcome. If you are interested in helping make chartmuseumui great then see our [contributing guide](CONTRIBUTING.md).
+Code contributions are very welcome. If you are interested in helping make chartmuseumui great then feel free!
 
 
 ## Authors
@@ -89,8 +89,5 @@ Code contributions are very welcome. If you are interested in helping make chart
 
 See also the list of [contributors](https://github.com/idobry/contributors) who participated in this project.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 
