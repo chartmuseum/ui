@@ -1,5 +1,5 @@
 # ChartMuseumUI
-[![stability][0]][1]
+[![HitCount](http://hits.dwyl.io/idobry/chartmuseumui.svg)](http://hits.dwyl.io/idobry/chartmuseumui)
 <img src="./logo.png" width="300">
 # ChartMuseumUI
 
