@@ -8,7 +8,7 @@ ChartMuseumUI was written in Go (Golang) with the help of Beego Framework.
 
 ## Getting Started
 
-These instructions will get you with your very own private chart repository. You can run this on your localmachine, on cloud basically on every machine the have docker and docker-compose.
+These instructions will get you with your very own private charts repository. You can run this on your localmachine, on cloud and basically on every machine that have docker and docker-compose installed.
 
 ### Usage
 
