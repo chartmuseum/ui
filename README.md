@@ -14,7 +14,7 @@ These instructions will get you with your very own private charts repository. Yo
 
 ChartMuseumUI is using [ChartMuseum](https://github.com/helm/chartmuseum) as a backend so the best way would be to use docker-compose. 
 
-For example, the following docker-compose is defining ChartMuseum with Amazon S3 as a stroage and exposing ChartMuseumUI on port 80 
+For example, the following docker-compose file is defining ChartMuseum with Amazon S3 as a storage and exposing ChartMuseumUI on port 80 
 ```
 version: '2.0'
 
