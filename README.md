@@ -1,5 +1,5 @@
 # ChartMuseumUI
-[![HitCount](http://hits.dwyl.io/idobry/chartmuseumui.svg)](http://hits.dwyl.io/idobry/chartmuseumui) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![micha](https://img.shields.io/badge/start%20with-why%3F-brightgreen.svg?style=flat)](http://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action)
+[![HitCount](http://hits.dwyl.io/idobry/chartmuseumui.svg)](http://hits.dwyl.io/idobry/chartmuseumui) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 <img src="./logo.png" width="300">
 # ChartMuseumUI
 
@@ -8,36 +8,68 @@ ChartMuseumUI was written in Go (Golang) with the help of Beego Framework.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you with your very own private chart repository. You can run this on your localmachine, on cloud basically on every machine the have docker and docker-compose.
 
-### Installing
+### Usage
 
-A step by step series of examples that tell you how to get a development env running
+ChartMuseumUI is using [ChartMuseum](https://github.com/helm/chartmuseum) as a backend so the best way would be to use docker-compose. 
 
-Say what the step will be
+For example to following docker-compose is using ChartMuseum with Amazon S3 as a stroage.
+```
+version: '2.0'
+
+services:
+   ui:
+     image: idobry/chartmuseumui:latest
+     environment:
+      CHART_MUSESUM_URL: "http://chartmuseum:8080"
+     ports:
+      - 80:8080
+   chartmuseum:
+     image: chartmuseum/chartmuseum:latest
+     volumes:
+       - ~/.aws:/root/.aws:ro
+     restart: always
+     environment:
+      PORT: 8080
+      DEBUG: 1
+      STORAGE: "amazon"
+      STORAGE_AMAZON_BUCKET: "chartmuseum-bucket"
+      STORAGE_AMAZON_PREFIX: ""
+      STORAGE_AMAZON_REGION: "eu-west-1"
+     ports:
+      - 8080:8080
+```
+
+Copy this file and then run:
 
 ```
-Give the example
+docker-compose up 
 ```
-
-And repeat
+Now let's add our private repo to our Helm client.
 
 ```
-until finished
+helm repo add <repo-name> <chartmuseum-url>
+helm repo update
 ```
+Let's upload a chart into our repository
+```
+cd /chart/path
+# create a package
+helm package .
+#copy packge name
+curl -L --data-binary "@<packge-name>" <chartmuseum-url>/api/charts
+```
+We should now had over to `localhost/home` to view our charts.
 
-End with an example of getting some data out of the system or using it for a little demo
 
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [beego](https://beego.me/) - The web framework used
+* [go](https://golang.org/) - Programing language
+* [docker](https://www.docker.com/) - Packaged with docker
 
 ## Contributing
 
