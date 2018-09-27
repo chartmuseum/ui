@@ -1,40 +1,58 @@
+<!DOCTYPE html>
 
-<body>
-{{ block "header" .}}{{end}}
+<html>
+{{ template "head.tpl" . }}
+<article class="page">
 
-<div class="content">
+  <section>
+      {{ template "header.tpl" . }}
+  </section>
 
-<div class="container ">
-    <div class="row">
-
-{{range $key, $v:= .charts}}
-<div class="card tile" style="width: 15rem;">
-  {{ if (index $v 0).Icon}}
-  <img class="card-img-top" src={{ (index $v 0).Icon }} alt="Card image cap" style="width: 6rem; height: 6rem">
-  {{else}}
-  <img class="card-img-top" src="static/img/icon_default.png" alt="Card image cap" style="width: 6rem; height: 6rem">
-  {{end}}
-  <div class="card-body">
-    <h5 class="card-title">{{ (index $v 0).Name }}</h5>
-  </div>
-    <div class="card-footer">
-    {{ (index $v 0).Version }}
-  </div>
-</div>
-
-{{end}}
-
-</div>
-</div>
-</div>
-
-{{ block "footer" .}}{{end}}
+  <section class="chart-content chart-scroller">
   
-  <div class="backdrop"></div>
+      <div class="gallery">
 
-  <script src="/static/js/reload.min.js"></script>
-</body>
+        {{range $k, $v:= .charts}}
+        <div class="card tile" chart-name={{ (index $v 0).Name }}>
+          <div class="card-body">
+            <div class="icon-container">
+              {{ if (index $v 0).Icon}}  
+                <img class="card-img-top" src={{ (index $v 0).Icon }}>
+              {{else}}
+                <img class="card-img-top" src="static/img/icon_default.png">
+              {{end}}
+            </div>
+          </div>
+          <div class="card-title">
+            <h5>{{ (index $v 0).Name }}</h5>
+          </div>
+          <div class="card-footer" chart-name={{ (index $v 0).Name }}>
+            {{ (index $v 0).Version }}
+          </div>           
+        </div>        
+      {{end}}
+
+      </div>
+
+  </section>
+
+  <section>
+    {{ template "footer.tpl" . }}
+  </section>
+
+</article>
+
+<script>
+
+$(document).ready(function(){
+    $(".card").click(function(){
+        location.href += '/chart/?name=' + $(this).attr("chart-name");
+    });
+});
+
+</script>
 </html>
+
 
 
 

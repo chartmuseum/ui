@@ -7,6 +7,8 @@ import (
 )
 
 func init() {
-	beego.Router("/", &controllers.LogInController{})
+	//beego.Router("/", &controllers.LogInPage{})
+	//beego.Router("/login", &controllers.LogInController{})
 	beego.Router("/home", &controllers.MainController{})
+	beego.Router("/home/chart/?:name", &controllers.ChartController{})
 }
