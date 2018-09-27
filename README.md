@@ -55,12 +55,12 @@ helm repo update
 Let's upload a chart into our private repository
 ```
 cd /chart/path
-# create a chart package -this will creaye a .tgz file
+# create a chart package - this will create a .tgz file
 helm package .
-#copy packge name and run
+# copy packge name and run
 curl -L --data-binary "@<packge-name>" <chartmuseum-url>/api/charts
 ```
-In the browser navigate to `localhost/home` to view our charts
+In the browser, navigate to `localhost/home` to view our charts
 
 
 
