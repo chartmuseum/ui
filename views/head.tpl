@@ -138,16 +138,19 @@ footer {
 }
 
 .gallery{
+  width: 40vw;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(15rem, 1fr));
   grid-row-gap: 20px;
   grid-column-gap: 20px;
-  place-item: center;
+  place-items: center;
 }
 
 .page{
   height: 100%;
   display: grid;
+  background-color: #d3dbdb;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   grid-row-gap: 20px;
@@ -159,8 +162,6 @@ footer {
 }    
 
 .chart-content {
-  margin-left: 20%;
-  margin-right: 20%;
   display: flex;
   place-items: center;
 }
@@ -168,11 +169,14 @@ footer {
   width: 15rem;
   height: 15rem;
   display: flex;
+  cursor: pointer;
 }
 .card-body {
-  display: flex;
-  flex-direction: column;
-  place-items: center;
+  position: relative;
+}
+
+.card-title{
+  margin: 0 auto;
 }
 
 .card-footer {
@@ -182,9 +186,10 @@ footer {
 
 .icon-container {
   width: 50%;
-  height: 100%;
-  display: flex;
-  place-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .icon-container > img {
@@ -193,10 +198,10 @@ footer {
 }
 
 .logo {
-  background-image: url(static/img/logo_white.png);
+  background-image: url(/static/img/logo_white.png);
   background-repeat: no-repeat;
   -webkit-background-size: 200px 100px;
-  background-size: 310px 150px;
+  background-size: 320px 160px;
   background-position: center center;
   text-align: center;
   font-size: 42px;

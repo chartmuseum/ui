@@ -22,7 +22,9 @@
                 <img class="card-img-top" src="static/img/icon_default.png">
               {{end}}
             </div>
-            <h5 class="card-title">{{ (index $v 0).Name }}</h5>
+          </div>
+          <div class="card-title">
+            <h5>{{ (index $v 0).Name }}</h5>
           </div>
           <div class="card-footer" chart-name={{ (index $v 0).Name }}>
             {{ (index $v 0).Version }}
@@ -43,7 +45,7 @@
 <script>
 
 $(document).ready(function(){
-    $("card").click(function(){
+    $(".card").click(function(){
         location.href += '/chart/?name=' + $(this).attr("chart-name");
     });
 });

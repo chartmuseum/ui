@@ -26,11 +26,13 @@ footer {
 }
 
 .gallery{
+  margin: 0 auto;
+  width: 40vw;
   display: grid;
-  grid-template-columns: repeat(4, minmax(15rem, 1fr));
+  /* grid-template-columns: repeat(4, minmax(15rem, 1fr)); */
   grid-row-gap: 20px;
   grid-column-gap: 20px;
-  place-item: center;
+  place-items: center;
 }
 
 .page{
