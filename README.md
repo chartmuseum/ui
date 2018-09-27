@@ -78,7 +78,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Authors
 
-* **Ido Braunstain** - *Initial work* - [PurpleBooth](https://github.com/idobry)
+* **Ido Braunstain** - *Initial work*
 
 See also the list of [contributors](https://github.com/idobry/contributors) who participated in this project.
 
