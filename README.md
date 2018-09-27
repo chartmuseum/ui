@@ -1,5 +1,6 @@
 # ChartMuseumUI
 [![HitCount](http://hits.dwyl.io/idobry/chartmuseumui.svg)](http://hits.dwyl.io/idobry/chartmuseumui)
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 <img src="./logo.png" width="300">
 # ChartMuseumUI
 
