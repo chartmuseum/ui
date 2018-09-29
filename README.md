@@ -51,23 +51,30 @@ Copy this file and run
 ```
 docker-compose up 
 ```
-Now, we can add our private repo to our Helm client
+Easy, right? now, we can add our private repository to our Helm client:
+```
+# choose any name you like
+$ helm repo add chartmuseum <chartmuseum-url>
+$ helm repo update
+# to view our repos list
+$ helm repo list
+NAME        URL
+stable      https://kubernetes-charts.storage.googleapis.com
+incubator   http://storage.googleapis.com/kubernetes-charts-incubator
+chartmuseum http://localhost:8080
+```
+
+Let's upload a chart into our private repository:
 
 ```
-helm repo add <repo-name> <chartmuseum-url>
-helm repo update
-```
-Let's upload a chart into our private repository
-```
-cd /chart/path
+$ cd /chart/path
 # create a chart package - this will create a .tgz file
-helm package .
+$ helm package .
 # copy packge name and run
-curl -L --data-binary "@<packge-name>" <chartmuseum-url>/api/charts
+$ curl -L --data-binary "@<packge-name>" <chartmuseum-url>/api/charts
 ```
-In the browser, navigate to `localhost/home` to view our charts
-
-
+   
+In the browser, navigate to localhost/home to view your charts
 
 
 ## Built With
