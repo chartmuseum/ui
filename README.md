@@ -3,7 +3,7 @@
 <img src="./logo.png" width="300">
 # ChartMuseumUI
 
-ChartMuseumUI is a simple web app that can provide a nice GUI for your charts. 
+ChartMuseumUI is a simple web app that (currently) provides GUI for your charts so you and your team can view and share the technologies your are using to any one at any time (in near future more capabilities will be added).
 ChartMuseumUI was written in Go (Golang) with the help of Beego Framework.
 
 ## Getting Started
