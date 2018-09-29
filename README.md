@@ -1,10 +1,15 @@
 # ChartMuseumUI
 [![HitCount](http://hits.dwyl.io/idobry/chartmuseumui.svg)](http://hits.dwyl.io/idobry/chartmuseumui) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+
 <img src="./logo.png" width="300">
+
 # ChartMuseumUI
 
 ChartMuseumUI is a simple web app that (currently) provides GUI for your charts so you and your team can view and share the technologies your are using to any one at any time (in near future more capabilities will be added).
 ChartMuseumUI was written in Go (Golang) with the help of Beego Framework.
+
+<img src="./home.png" width="500">
+<img src="./example_rabbitmq.png" width="300">
 
 ## Getting Started
 
