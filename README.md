@@ -9,7 +9,7 @@ ChartMuseumUI is a simple web app that (currently) provides GUI for your charts 
 ChartMuseumUI was written in Go (Golang) with the help of Beego Framework.
 
 <img src="./home.png" width="500">
-<img src="./example_rabbitmq.png" width="500">
+<img src="./example_rabbitmq.png" width="300">
 
 ## Getting Started
 
