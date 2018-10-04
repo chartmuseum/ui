@@ -17,7 +17,7 @@
 
 $(document).ready(function(){
   
-  console.log("ready!!");
+  console.log("ready");
 
   $(".login-form").submit(function(){
         username = $("#username").val(); 

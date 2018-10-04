@@ -30,8 +30,20 @@
             {{ (index $v 0).Version }}
           </div>           
         </div>        
-      {{end}}
-
+       {{end}}
+        <div class="card tile addchart" chart-name="Add Chart">
+          <div class="card-body">
+            <div class="icon-container"> 
+                <img class="card-img-top" src="static/img/plus.png">
+            </div>
+          </div>
+          <div class="card-title">
+            <h5>Add Chart</h5>
+          </div>
+          <div class="card-footer" chart-name="Add Chart">
+          </div>           
+        </div> 
+				<input type="file" id="uploader" multiple hidden>
       </div>
 
   </section>
@@ -44,11 +56,46 @@
 
 <script>
 
-$(document).ready(function(){
-    $(".card").click(function(){
-        location.href += '/chart/?name=' + $(this).attr("chart-name");
+  $(document).ready(function(){
+			
+      $(".card:not(.addchart)").click(function(){
+          location.href += 'chart/?name=' + $(this).attr("chart-name");
+      });
+
+			var inputUploader = $("#uploader");
+			inputUploader.change(function(){
+					console.log("SELECTED", inputUploader.prop("files"));
+					uploadChart(inputUploader.prop("files"));
+			});
+
+			$(".card.addchart").click(function(){
+					inputUploader.click();
+			});
+  });
+
+function uploadChart(files){
+
+		if(!files.length){
+			return;
+		}
+
+     var formData = new FormData();
+     formData.append("chart", files[0])       
+
+    $.ajax({  
+         async: true,
+         type: "POST",  
+         url: "/receive/",  
+         data: formData,
+         cache: false,
+         contentType: false,
+         processData: false,
+         success: function(data) {
+             location.reload();
+         }
     });
-});
+
+}
 
 </script>
 </html>
