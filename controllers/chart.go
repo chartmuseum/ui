@@ -11,9 +11,11 @@ type ChartController struct {
 
 func (c *ChartController) Get() {
 
+	l := logs.GetLogger()
+	l.Println("into chart page")
+
 	var name string
 	c.Ctx.Input.Bind(&name, "name")
-	l := logs.GetLogger()
 
 	c.Data["chart"] = getCharts()[name]
 

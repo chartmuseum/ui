@@ -17,3 +17,5 @@ ADD . $APP_DIR
 RUN cd $APP_DIR && CGO_ENABLED=0 godep go build -ldflags '-d -w -s'
 
 EXPOSE 8080
+
+

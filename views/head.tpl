@@ -162,6 +162,7 @@ footer {
 }    
 
 .chart-content {
+  position: relative;
   display: flex;
   place-items: center;
 }
@@ -171,6 +172,14 @@ footer {
   display: flex;
   cursor: pointer;
 }
+
+.card.addchart{
+    opacity: 0.5;
+}
+.card.addchart:hover{
+    opacity: 1.0;
+}
+
 .card-body {
   position: relative;
 }
@@ -467,7 +476,7 @@ a {
      margin-right: 15px;
     border: 1px solid #c9d8b8;
   }
-  
+
   #friendslist li a img { float: left; margin-right: 5px; }
   
   /** clearfix **/
