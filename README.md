@@ -74,7 +74,7 @@ $ helm package .
 $ curl -L --data-binary "@<packge-name>" <chartmuseum-url>/api/charts
 ```
    
-In the browser, navigate to localhost/home to view your charts
+In the browser, navigate to localhost and view your charts
 
 
 ## Built With
@@ -88,7 +88,11 @@ In the browser, navigate to localhost/home to view your charts
 * Add login screen
 * Add more chartmuseum capabilitis:
    - Upload a chart
+     - Support multiple
    - Delete a chart
+     - Ask before deleting
+     - Delete all versions button
+     - Back to 'home' after delete all
 
 ## Contributing
 
