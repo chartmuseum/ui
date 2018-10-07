@@ -10,5 +10,14 @@ variables:
   imageName: 'idobry/chartmuseumui:$(build.buildId)'
 
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
-  displayName: 'docker build'
+- task: Docker@1
+  displayName: 'Build an image'
+  inputs:
+    containerregistrytype: 'Container Registry'
+
+    dockerFile: Dockerfile
+
+    imageName: 'idobry/charmuseumui:$(Build.BuildId)'
+
+    includeLatestTag: true
+
