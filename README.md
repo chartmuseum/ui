@@ -8,8 +8,7 @@
 ChartMuseumUI is a simple web app that (currently) provides GUI for your charts so you and your team can view and share the technologies your are using to any one at any time (in near future more capabilities will be added).
 ChartMuseumUI was written in Go (Golang) with the help of Beego Framework.
 
-<img src="./home.png" width="500">
-<img src="./example_rabbitmq.png" width="300">
+<img src="./combine-gif.gif" width="2000">
 
 ## Getting Started
 
@@ -17,7 +16,7 @@ These instructions will get you with your very own private charts repository. Yo
 
 ### Usage
 
-ChartMuseumUI is using [ChartMuseum](https://github.com/helm/chartmuseum) as a backend so the best way would be to use docker-compose. 
+ChartMuseumUI using [ChartMuseum](https://github.com/helm/chartmuseum) as a backend so the best way would be to use docker-compose. 
 
 For example, the following docker-compose file is defining ChartMuseum with Amazon S3 as a storage and exposing ChartMuseumUI on port 80 
 ```
@@ -74,7 +73,7 @@ $ helm package .
 $ curl -L --data-binary "@<packge-name>" <chartmuseum-url>/api/charts
 ```
    
-In the browser, navigate to localhost/home to view your charts
+In the browser, navigate to localhost and view your charts
 
 
 ## Built With
@@ -88,7 +87,11 @@ In the browser, navigate to localhost/home to view your charts
 * Add login screen
 * Add more chartmuseum capabilitis:
    - Upload a chart
+     - Support multiple
    - Delete a chart
+     - Ask before deleting
+     - Delete all versions button
+     - Back to 'home' after delete all
 
 ## Contributing
 

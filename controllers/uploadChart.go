@@ -23,13 +23,13 @@ func (this *UploadChartController) Post() {
 
 	if file != nil {
 		l.Println("fileName:" + filePath)
-		err := this.SaveToFile("file", filePath)
+		err := this.SaveToFile("chart", filePath)
 
 		if err != nil {
-			l.Println("SaveToFile", err.Error)
+			l.Println("*SaveToFile*", err.Error)
 		}
 	}
-
+	l.Println("going into uploadChart()")
 	uploadChart(filePath)
 
 }
