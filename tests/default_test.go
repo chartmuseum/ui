@@ -6,7 +6,8 @@ import (
 	"testing"
 	"runtime"
 	"path/filepath"
-	_ "quickstart/routers"
+
+	_ "github.com/chartmuseum/ui/routers"
 
 	"github.com/astaxie/beego"
 	. "github.com/smartystreets/goconvey/convey"
