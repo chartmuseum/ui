@@ -12,16 +12,26 @@ ChartMuseumUI was written in Go (Golang) with the help of Beego Framework.
 
 ## Getting Started
 
-These instructions will get you with your very own private charts repository. You can run this on your localmachine, on cloud and basically on every machine that have docker and docker-compose installed.
+These instructions will get you started with your very own private chart repository and UI.
 
 ### Usage
 
-ChartMuseumUI using [ChartMuseum](https://github.com/helm/chartmuseum) as a backend so the best way would be to use docker-compose. 
+ChartMuseumUI uses [ChartMuseum](https://github.com/helm/chartmuseum) as a backend.
+To get started quickly, you can build and run the app using docker-compose.
 
-For example, the following docker-compose file is defining ChartMuseum with Amazon S3 as a storage and exposing ChartMuseumUI on port 80 
+Clone this repo and run the following:
+
+```
+docker-compose up
+```
+
+This will start ChartMuseumUI at [http://localhost:3000](http://localhost:3000)
+and ChartMuseum at [http://localhost:8080](http://localhost:8080).
+Check out the source of [docker-compose.yaml](./docker-compose.yaml) and modify for your purposes.
+
+Here is an example docker-compose file defining ChartMuseum with Amazon S3 as a storage and exposing ChartMuseumUI on port 80:
 ```
 version: '2.0'
-
 services:
    ui:
      image: idobry/chartmuseumui:latest

@@ -3,7 +3,8 @@ package controllers
 import (
 	"os"
 	"os/exec"
-	"quickstart/models"
+
+	"github.com/chartmuseum/ui/models"
 
 	"github.com/astaxie/beego/httplib"
 	"github.com/astaxie/beego/logs"

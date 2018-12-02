@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"quickstart/controllers"
+	"github.com/chartmuseum/ui/controllers"
 
 	"github.com/astaxie/beego"
 )

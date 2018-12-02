@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "quickstart/routers"
+	_ "github.com/chartmuseum/ui/routers"
 
 	"github.com/astaxie/beego"
 )
