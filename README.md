@@ -85,6 +85,15 @@ $ curl -L --data-binary "@<packge-name>" <chartmuseum-url>/api/charts
    
 In the browser, navigate to localhost and view your charts
 
+### Using with ChartMuseum with Multitenancy enabled
+
+To use ChartMuseumUI on a ChartMuseum with Multitenancy support enabled, add the following environment variable to ChartMuseumUI
+
+```
+CHART_MUSESUM_API_GET_CHARTS: "/api/org1/charts"
+```
+
+Currently only one organization is allowed per ChartMuseumUI.
 
 ## Built With
 
