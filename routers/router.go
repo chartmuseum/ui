@@ -12,14 +12,7 @@ import (
 )
 
 func init() {
-	l := logs.GetLogger()
-
-	userJson := os.Getenv("BASIC_AUTH_USERS")
-	if len(userJson) != 0 {
-		l.Println("Using basic auth")
-		authPlugin := auth.NewBasicAuthenticator(services.SecretAuth, "Authorization Required")
-		beego.InsertFilter("*", beego.BeforeRouter, authPlugin, true)
-	}
+	setupAuthentication()
 
 	beego.Router("/", &controllers.MainController{})
 	//beego.Router("/login", &controllers.LogInController{})
@@ -28,4 +21,15 @@ func init() {
 	beego.Router("/home", &controllers.MainController{})
 	beego.Router("/home/chart/?:name", &controllers.ChartController{})
 	beego.Router("/chart/?:name", &controllers.ChartController{})
+}
+
+func setupAuthentication() {
+	l := logs.GetLogger()
+
+	userJson := os.Getenv("BASIC_AUTH_USERS")
+	if len(userJson) != 0 {
+		l.Println("Using basic auth")
+		authPlugin := auth.NewBasicAuthenticator(services.SecretAuth, "Authorization Required")
+		beego.InsertFilter("*", beego.BeforeRouter, authPlugin, true)
+	}
 }
