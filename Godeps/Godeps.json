@@ -39,6 +39,11 @@
 			"Rev": "053a075344c118a5cc41981b29ef612bb53d20ca"
 		},
 		{
+			"ImportPath": "github.com/astaxie/beego/plugins/auth",
+			"Comment": "v1.10.1",
+			"Rev": "053a075344c118a5cc41981b29ef612bb53d20ca"
+		},
+		{
 			"ImportPath": "github.com/astaxie/beego/session",
 			"Comment": "v1.10.1",
 			"Rev": "053a075344c118a5cc41981b29ef612bb53d20ca"

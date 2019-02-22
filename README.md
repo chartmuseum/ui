@@ -95,6 +95,15 @@ CHART_MUSESUM_API_GET_CHARTS: "/api/org1/charts"
 
 Currently only one organization is allowed per ChartMuseumUI.
 
+
+### Adding authentication to ChartMuseumUI 
+
+To add a simple basic auth to ChartMuseumUI, you can add the following configuration
+
+```
+BASIC_AUTH_USERS: '[{"username":"admin", "password":"password"}, {"username":"user", "password":"s3cr3t"}]'
+```
+
 ## Built With
 
 * [beego](https://beego.me/) - The web framework used
