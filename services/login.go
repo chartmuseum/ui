@@ -1,14 +1,13 @@
 package services
 
 import (
-	"os"
 	"errors"
+	"os"
 
 	"github.com/chartmuseum/ui/models"
 
 	"github.com/astaxie/beego/logs"
 )
-
 
 func SecretAuth(username, password string) bool {
 	l := logs.GetLogger()
@@ -23,7 +22,7 @@ func SecretAuth(username, password string) bool {
 			return true
 		}
 	}
-    return false
+	return false
 }
 
 func getUsersFromEnv() ([]models.User, error) {
@@ -34,7 +33,7 @@ func getUsersFromEnv() ([]models.User, error) {
 	if len(userJson) == 0 {
 		return nil, errors.New("No users defined. Create environment var BASIC_AUTH_USERS")
 	}
-	
+
 	users, err := models.NewUsers([]byte(userJson))
 	if err != nil {
 		l.Panic(err)

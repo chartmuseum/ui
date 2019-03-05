@@ -46,7 +46,7 @@ func deleteChart(name string, version string) {
 
 	l := logs.GetLogger()
 	l.Println("in deleteChart()")
-	cmd := exec.Command("curl", "-X", "DELETE", getBaseUrl() + "/"+name+"/" + version)
+	cmd := exec.Command("curl", "-X", "DELETE", getBaseUrl()+"/"+name+"/"+version)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		l.Fatalf("cmd.Run() failed with %s\n", err)
