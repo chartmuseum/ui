@@ -5,15 +5,17 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
+// UploadChartController handles requests for uploading new charts to ChartMuseum
 type UploadChartController struct {
 	beego.Controller
 }
 
-func (this *UploadChartController) Post() {
+// Post receives a chart and sends it to ChartMuseum
+func (u *UploadChartController) Post() {
 
 	l := logs.GetLogger()
 	l.Println("**UploadFile**")
-	file, header, er := this.GetFile("chart")
+	file, header, er := u.GetFile("chart")
 
 	if er != nil {
 		l.Println(er)
@@ -23,7 +25,7 @@ func (this *UploadChartController) Post() {
 
 	if file != nil {
 		l.Println("fileName:" + filePath)
-		err := this.SaveToFile("chart", filePath)
+		err := u.SaveToFile("chart", filePath)
 
 		if err != nil {
 			l.Println("*SaveToFile*", err.Error)

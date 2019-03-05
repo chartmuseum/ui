@@ -10,11 +10,13 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
+const apiGetCharts = "/api/charts"
+
 func getCharts() map[string][]models.Chart {
 
 	l := logs.GetLogger()
-	l.Printf("Getting charts on url: %s\n", getBaseUrl())
-	res, err := httplib.Get(getBaseUrl()).Debug(true).Bytes()
+	l.Printf("Getting charts on url: %s\n", getBaseURL())
+	res, err := httplib.Get(getBaseURL()).Debug(true).Bytes()
 	if err != nil {
 		l.Panic(err.Error)
 	}
@@ -34,7 +36,7 @@ func uploadChart(filePath string) {
 
 	l := logs.GetLogger()
 
-	cmd := exec.Command("curl", "-L", "--data-binary", "@"+filePath, getBaseUrl())
+	cmd := exec.Command("curl", "-L", "--data-binary", "@"+filePath, getBaseURL())
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		l.Fatalf("cmd.Run() failed with %s\n", err)
@@ -46,7 +48,7 @@ func deleteChart(name string, version string) {
 
 	l := logs.GetLogger()
 	l.Println("in deleteChart()")
-	cmd := exec.Command("curl", "-X", "DELETE", getBaseUrl()+"/"+name+"/"+version)
+	cmd := exec.Command("curl", "-X", "DELETE", getBaseURL()+"/"+name+"/"+version)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		l.Fatalf("cmd.Run() failed with %s\n", err)
@@ -54,10 +56,10 @@ func deleteChart(name string, version string) {
 	l.Printf("combined out:\n%s\n", string(out))
 }
 
-func getBaseUrl() string {
+func getBaseURL() string {
 	api := os.Getenv("CHART_MUSESUM_API_GET_CHARTS")
 	if len(api) == 0 {
-		api = api_get_charts
+		api = apiGetCharts
 	}
 	url := os.Getenv("CHART_MUSESUM_URL") + api
 	return url

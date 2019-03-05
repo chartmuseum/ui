@@ -5,12 +5,12 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
-const api_get_charts = "/api/charts"
-
+// MainController handles the front page
 type MainController struct {
 	beego.Controller
 }
 
+// Get renders a list with all charts in ChartMuseum
 func (c *MainController) Get() {
 	l := logs.GetLogger()
 	l.Println("I'm alive")

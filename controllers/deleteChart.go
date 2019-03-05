@@ -8,21 +8,24 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
+// DeleteChartController handles requests for deleting charts from ChartMuseum
 type DeleteChartController struct {
 	beego.Controller
 }
 
+// Chart reprecents a helm chart to be deleted
 type Chart struct {
 	Name    interface{} `form:"name"`
 	Version interface{} `form:"version"`
 }
 
-func (this *DeleteChartController) Post() {
+// Post handles delete requests from the ui
+func (d *DeleteChartController) Post() {
 
 	l := logs.GetLogger()
 	l.Println("in DELETE")
 	chart := Chart{}
-	if err := this.ParseForm(&chart); err != nil {
+	if err := d.ParseForm(&chart); err != nil {
 		l.Println("Error in login form")
 		os.Exit(1)
 	} else {

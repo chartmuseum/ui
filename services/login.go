@@ -9,6 +9,7 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
+// SecretAuth validates that a password matches a given username
 func SecretAuth(username, password string) bool {
 	l := logs.GetLogger()
 
