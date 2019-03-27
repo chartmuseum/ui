@@ -138,8 +138,8 @@ footer {
 }
 
 .gallery{
-  width: 40vw;
-  margin: 0 auto;
+  width: 70vw;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(15rem, 1fr));
   grid-row-gap: 20px;
