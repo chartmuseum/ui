@@ -6,7 +6,7 @@
 <article class="page">
 
   <section>
-      {{ template "header.tpl" . }}
+      <a href="/">{{ template "header.tpl" . }}</a>
   </section>
 
   <section>  
