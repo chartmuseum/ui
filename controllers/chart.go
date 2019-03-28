@@ -5,10 +5,12 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
+// ChartController handles getting and displaying charts
 type ChartController struct {
 	beego.Controller
 }
 
+// Get render all versions of one specific chart
 func (c *ChartController) Get() {
 
 	l := logs.GetLogger()
