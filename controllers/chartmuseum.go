@@ -57,10 +57,10 @@ func deleteChart(name string, version string) {
 }
 
 func getBaseURL() string {
-	api := os.Getenv("CHART_MUSESUM_API_GET_CHARTS")
+	api := os.Getenv("CHART_MUSEUM_API_GET_CHARTS")
 	if len(api) == 0 {
 		api = apiGetCharts
 	}
-	url := os.Getenv("CHART_MUSESUM_URL") + api
+	url := os.Getenv("CHART_MUSEUM_URL") + api
 	return url
 }
