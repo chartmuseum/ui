@@ -37,6 +37,8 @@ services:
      image: idobry/chartmuseumui:latest
      environment:
       CHART_MUSESUM_URL: "http://chartmuseum:8080"
+      # CHART_MUSEUM_USERNAME:
+      # CHART_MUSEUM_PASSWORD:
      ports:
       - 80:8080
    chartmuseum:

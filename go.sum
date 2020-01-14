@@ -1,0 +1,9 @@
+github.com/astaxie/beego v1.10.1 h1:M2ciUnyiZycuTpGEA+idJF0gX24h58EbPvGqjnO/DCg=
+github.com/astaxie/beego v1.10.1/go.mod h1:0R4++1tUqERR0WYFWdfkcrsyoVBCG4DgpDGokT3yb+U=
+github.com/lib/pq v0.0.0-20180118035737-27ea5d92de30 h1:1kdC6gi+w7x+KmbTBWVA/GvgbkR5TYQPCwJf1cphch4=
+github.com/lib/pq v0.0.0-20180118035737-27ea5d92de30/go.mod h1:5WUZQaWbwv1U+lTReE5YruASi9Al49XbQIvNi/34Woo=
+golang.org/x/crypto v0.0.0-20180430181235-ae8bce003081 h1:0DFpebbjFw+PVEZi5RGs8adhq+pCpF+uwTwBAaldV/g=
+golang.org/x/crypto v0.0.0-20180430181235-ae8bce003081/go.mod h1:6SG95UA2DQfeDnfUPMdvaQW0Q7yPrPDi9nlGo2tz2b4=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+gopkg.in/yaml.v2 v2.2.1 h1:mUhvW9EsL+naU5Q3cakzfE91YhliOondGd6ZrsDBHQE=
+gopkg.in/yaml.v2 v2.2.1/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=

@@ -16,7 +16,11 @@ func getCharts() map[string][]models.Chart {
 
 	l := logs.GetLogger()
 	l.Printf("Getting charts on url: %s\n", getBaseURL())
-	res, err := httplib.Get(getBaseURL()).Debug(true).Bytes()
+
+	cmUsername := os.Getenv("CHART_MUSEUM_USERNAME")
+	cmPassword := os.Getenv("CHART_MUSEUM_PASSWORD")
+
+	res, err := httplib.Get(getBaseURL()).SetBasicAuth(cmUsername, cmPassword).Debug(true).Bytes()
 	if err != nil {
 		l.Panic(err.Error)
 	}
