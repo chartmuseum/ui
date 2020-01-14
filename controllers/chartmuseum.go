@@ -3,6 +3,7 @@ package controllers
 import (
 	"os"
 	"os/exec"
+	"fmt"
 
 	"github.com/chartmuseum/ui/models"
 
@@ -40,7 +41,11 @@ func uploadChart(filePath string) {
 
 	l := logs.GetLogger()
 
-	cmd := exec.Command("curl", "-L", "--data-binary", "@"+filePath, getBaseURL())
+	cmUsername := os.Getenv("CHART_MUSEUM_USERNAME")
+	cmPassword := os.Getenv("CHART_MUSEUM_PASSWORD")
+	curlUserCrednentials := fmt.Sprintf("%s:%s",cmUsername, cmPassword)
+
+	cmd := exec.Command("curl", "-u", curlUserCrednentials, "-L", "--data-binary", "@"+filePath, getBaseURL())
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		l.Fatalf("cmd.Run() failed with %s\n", err)
@@ -52,7 +57,12 @@ func deleteChart(name string, version string) {
 
 	l := logs.GetLogger()
 	l.Println("in deleteChart()")
-	cmd := exec.Command("curl", "-X", "DELETE", getBaseURL()+"/"+name+"/"+version)
+
+	cmUsername := os.Getenv("CHART_MUSEUM_USERNAME")
+	cmPassword := os.Getenv("CHART_MUSEUM_PASSWORD")
+	curlUserCrednentials := fmt.Sprintf("%s:%s",cmUsername, cmPassword)
+
+	cmd := exec.Command("curl", "-u", curlUserCrednentials, "-X", "DELETE", getBaseURL()+"/"+name+"/"+version)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		l.Fatalf("cmd.Run() failed with %s\n", err)

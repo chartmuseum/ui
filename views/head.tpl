@@ -209,12 +209,11 @@ footer {
 .logo {
   background-image: url(/static/img/logo_white.png);
   background-repeat: no-repeat;
-  -webkit-background-size: 200px 100px;
-  background-size: 320px 160px;
-  background-position: center center;
+  background-size: 10rem 10rem;
+  background-position: 50% 1rem;
   text-align: center;
-  font-size: 42px;
-  padding: 260px 0 20px;
+  font-size: 3rem;
+  padding: 12rem 0rem 0.5rem;
   font-weight: normal;
 }
 

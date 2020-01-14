@@ -9,7 +9,7 @@
       <a href="/">{{ template "header.tpl" . }}</a>
   </section>
 
-  <section>  
+  <section class="chart-scroller">
     <div id="w">
       <div id="content" class="clearfix">
         {{ if (index .chart 0).Icon }}

@@ -97,6 +97,15 @@ CHART_MUSESUM_API_GET_CHARTS: "/api/org1/charts"
 
 Currently only one organization is allowed per ChartMuseumUI.
 
+### ChartMuseum Backend Auth
+
+To use a ChartMuseum with basic auth, add following ENV variables.
+
+```
+CHART_MUSEUM_USERNAME
+CHART_MUSEUM_PASSWORD
+```
+
 
 ### Adding authentication to ChartMuseumUI 
 
