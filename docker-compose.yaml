@@ -4,7 +4,7 @@ services:
     build: ./
     #image: idobry/chartmuseumui:latest
     environment:
-      CHART_MUSESUM_URL: http://chartmuseum:8080
+      CHART_MUSEUM_URL: http://chartmuseum:8080
     ports:
       - 3000:8080
   chartmuseum:
