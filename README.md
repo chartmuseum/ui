@@ -104,6 +104,15 @@ To add a simple basic auth to ChartMuseumUI, you can add the following configura
 BASIC_AUTH_USERS: '[{"username":"admin", "password":"password"}, {"username":"user", "password":"s3cr3t"}]'
 ```
 
+### Adding back end authentication to ChartMuseumUI 
+
+To add a back end credentials to be used by ChartMuseumUI, you can add the following configuration
+
+```
+BACKEND_BASIC_AUTH_USER: username
+BACKEND_BASIC_AUTH_PASS: password
+```
+
 ## Built With
 
 * [beego](https://beego.me/) - The web framework used

@@ -16,7 +16,22 @@ func getCharts() map[string][]models.Chart {
 
 	l := logs.GetLogger()
 	l.Printf("Getting charts on url: %s\n", getBaseURL())
-	res, err := httplib.Get(getBaseURL()).Debug(true).Bytes()
+
+        backendUser := os.Getenv("BACKEND_BASIC_AUTH_USER")
+        backendPass := os.Getenv("BACKEND_BASIC_AUTH_PASS")
+
+        var err error
+        var res []byte
+        if len(backendUser) == 0 {
+	        res, err = httplib.Get(getBaseURL()).Debug(true).Bytes()
+        } else if len(backendPass) == 0 {
+	        l.Println("BACKEND_BASIC_AUTH_USER supplied without BACKEND_BASIC_AUTH_PASS, trying anyway")
+	        res, err = httplib.Get(getBaseURL()).SetBasicAuth(backendUser, "").Debug(true).Bytes()
+        } else {
+	        res, err = httplib.Get(getBaseURL()).SetBasicAuth(backendUser, backendPass).Debug(true).Bytes()
+        }
+
+
 	if err != nil {
 		l.Panic(err.Error)
 	}
@@ -36,7 +51,19 @@ func uploadChart(filePath string) {
 
 	l := logs.GetLogger()
 
-	cmd := exec.Command("curl", "-L", "--data-binary", "@"+filePath, getBaseURL())
+        backendUser := os.Getenv("BACKEND_BASIC_AUTH_USER")
+        backendPass := os.Getenv("BACKEND_BASIC_AUTH_PASS")
+
+        cmd := exec.Command("echo")
+        if len(backendUser) == 0 {
+	        cmd = exec.Command("curl", "-L", "--data-binary", "@"+filePath, getBaseURL())
+        } else if len(backendPass) == 0 {
+                l.Println("BACKEND_BASIC_AUTH_USER supplied without BACKEND_BASIC_AUTH_PASS, trying anyway")
+	        cmd = exec.Command("curl", "-L", "--user", backendUser+":", "--data-binary", "@"+filePath, getBaseURL())
+        } else {
+	        cmd = exec.Command("curl", "-L", "--user", backendUser+":"+backendPass,"--data-binary", "@"+filePath, getBaseURL())
+        }
+
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		l.Fatalf("cmd.Run() failed with %s\n", err)
@@ -48,7 +75,19 @@ func deleteChart(name string, version string) {
 
 	l := logs.GetLogger()
 	l.Println("in deleteChart()")
-	cmd := exec.Command("curl", "-X", "DELETE", getBaseURL()+"/"+name+"/"+version)
+
+        backendUser := os.Getenv("BACKEND_BASIC_AUTH_USER")
+        backendPass := os.Getenv("BACKEND_BASIC_AUTH_PASS")
+
+        cmd := exec.Command("echo")
+        if len(backendUser) == 0 {
+	        cmd = exec.Command("curl", "-X", "DELETE", getBaseURL()+"/"+name+"/"+version)
+        } else if len(backendPass) == 0 {
+	        cmd = exec.Command("curl", "--user", backendUser+":", "-X", "DELETE", getBaseURL()+"/"+name+"/"+version)
+        } else {
+	        cmd = exec.Command("curl", "--user", backendUser+":"+backendPass, "-X", "DELETE", getBaseURL()+"/"+name+"/"+version)
+        }
+
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		l.Fatalf("cmd.Run() failed with %s\n", err)
