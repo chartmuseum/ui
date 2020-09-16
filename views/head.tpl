@@ -164,7 +164,6 @@ footer {
 .chart-content {
   position: relative;
   display: flex;
-  place-items: center;
 }
 .card.tile {
   width: 15rem;
