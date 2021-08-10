@@ -54,14 +54,19 @@
 
 <script type="text/javascript">
 
-document.querySelector('button').addEventListener('click', function () {
-  console.log("ready");
-  $.post("/delete/",
-  {
-      name: this.getAttribute("name"),
-      version: this.getAttribute("version")
-  });
-}, false);
+var buttons = document.querySelectorAll('button');
+[].forEach.call(buttons, function(button) {
+  button.addEventListener('click', function () {
+    console.log("ready");
+    console.log(this.getAttribute("name"));
+    console.log(this.getAttribute("version"));
+    $.post("/delete/",
+    {
+        name: this.getAttribute("name"),
+        version: this.getAttribute("version")
+    });
+  }, false);
+});
 
 $(function(){
   $('#profiletabs ul li a').on('click', function(e){
