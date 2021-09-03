@@ -36,7 +36,7 @@ services:
    ui:
      image: idobry/chartmuseumui:latest
      environment:
-      CHART_MUSESUM_URL: "http://chartmuseum:8080"
+      CHART_MUSEUM_URL: "http://chartmuseum:8080"
      ports:
       - 80:8080
    chartmuseum:
@@ -90,7 +90,7 @@ In the browser, navigate to localhost and view your charts
 To use ChartMuseumUI on a ChartMuseum with Multitenancy support enabled, add the following environment variable to ChartMuseumUI
 
 ```
-CHART_MUSESUM_API_GET_CHARTS: "/api/org1/charts"
+CHART_MUSEUM_API_GET_CHARTS: "/api/org1/charts"
 ```
 
 Currently only one organization is allowed per ChartMuseumUI.
